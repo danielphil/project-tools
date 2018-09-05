@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Requirements for {{project_name}}</title>
+    </head>
+    <body>
+        <h1>{{project_name}} Project Requirements</h1>
+        <p>Generated: {{time}}</p>
+        {{#epics}}
+            <h2><a href="{{permalink}}">{{key}}</a>: {{summary}}</h2>
+            {{{description}}}
+            <table>
+                {{#children}}
+                <tr>
+                    <td><a href="{{permalink}}">{{key}}</a></td>
+                    <td><img src="{{icon_type}}"/></td>
+                    <td>
+                        {{#closed}}<s>{{summary}}</s>{{/closed}}
+                        {{^closed}}{{summary}}{{/closed}}
+                    </td>
+                </tr>
+                {{/children}}
+            </table>
+        {{/epics}}
+    </body>
+</html>
