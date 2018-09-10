@@ -6,12 +6,18 @@
     <body>
         <h1>{{project_name}} Project Requirements</h1>
         <p>Generated: {{time}}</p>
-        {{#epics}}
+        {{#requirements}}
             <h2><a href="{{permalink}}">{{key}}</a>: {{summary}}</h2>
+            <h3>Type: 
+                {{#labels}}
+                    {{.}}
+                {{/labels}}
+            </h3>
             {{{description}}}
             <table>
-                {{#children}}
+                {{#links}}
                 <tr>
+                    <td>{{link_type}}</td>
                     <td><a href="{{permalink}}">{{key}}</a></td>
                     <td><img src="{{icon_type}}"/></td>
                     <td>
@@ -19,8 +25,8 @@
                         {{^closed}}{{summary}}{{/closed}}
                     </td>
                 </tr>
-                {{/children}}
+                {{/links}}
             </table>
-        {{/epics}}
+        {{/requirements}}
     </body>
 </html>
